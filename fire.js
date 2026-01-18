@@ -13,10 +13,10 @@ let embers = [];
 function spawn() {
   embers.push({
     x: Math.random() * canvas.width,
-    y: canvas.height + 10,
-    r: Math.random() * 2 + 1,
-    vy: Math.random() * -1.5 - 0.5,
-    a: Math.random() * 0.6 + 0.2
+    y: canvas.height + 20,
+    r: Math.random() * 3 + 1,
+    vy: Math.random() * -2.5 - 0.5,
+    a: Math.random() * 0.8 + 0.3
   });
 }
 
@@ -25,16 +25,20 @@ function draw() {
 
   embers.forEach((e, i) => {
     ctx.beginPath();
-    ctx.fillStyle = `rgba(255,${120+Math.random()*100},0,${e.a})`;
-    ctx.arc(e.x, e.y, e.r, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(255,${80+Math.random()*120},0,${e.a})`;
+    ctx.arc(e.x, e.y, e.r, 0, Math.PI * 2);
     ctx.fill();
 
     e.y += e.vy;
-    e.a -= 0.002;
+    e.a -= 0.004;
+
     if (e.a <= 0) embers.splice(i, 1);
   });
 
-  if (embers.length < 300) spawn();
+  if (embers.length < 600) {
+    for (let i = 0; i < 4; i++) spawn();
+  }
+
   requestAnimationFrame(draw);
 }
 
