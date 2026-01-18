@@ -7,12 +7,13 @@
 html, body {
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at bottom, #1a0000, #000);
+  background: radial-gradient(circle at bottom, #220000, #000);
   overflow: hidden;
   font-family: Impact, "Arial Black", sans-serif;
-  color: #fff;
+  color: white;
 }
 
+/* CANVAS */
 #fire {
   position: fixed;
   inset: 0;
@@ -20,7 +21,44 @@ html, body {
   pointer-events: none;
 }
 
-/* MAIN CONTAINER */
+/* HEAT SHIMMER */
+.heat {
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(255,80,0,0.03),
+    rgba(255,80,0,0.03) 2px,
+    transparent 4px
+  );
+  animation: heatMove 6s infinite linear;
+  z-index: 1;
+}
+
+@keyframes heatMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 300px 300px; }
+}
+
+/* LAVA */
+.lava {
+  position: fixed;
+  bottom: -10%;
+  left: 0;
+  width: 100%;
+  height: 35%;
+  background: linear-gradient(#ff3c00, #7f0000, #220000);
+  filter: blur(25px);
+  animation: lavaRise 6s infinite alternate;
+  z-index: 1;
+}
+
+@keyframes lavaRise {
+  from { height: 30%; }
+  to { height: 38%; }
+}
+
+/* CONTAINER */
 .container {
   position: relative;
   z-index: 2;
@@ -31,34 +69,36 @@ html, body {
 
 /* LOGO */
 .logo {
-  width: 240px;
+  width: 260px;
   margin-bottom: 20px;
-  filter:
-    drop-shadow(0 0 15px #ff3c00)
-    drop-shadow(0 0 35px #ff6a00);
-  animation: logoPulse 3s infinite;
+  filter: drop-shadow(0 0 40px #ff3c00);
 }
 
-@keyframes logoPulse {
-  0%,100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+.beast-shake {
+  animation: shake 6s infinite;
 }
 
-/* TITLE */
-h1 {
-  font-size: 56px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  margin-bottom: 10px;
+@keyframes shake {
+  0%,95% { transform: translate(0,0); }
+  96% { transform: translate(-2px,2px); }
+  97% { transform: translate(2px,-2px); }
+  98% { transform: translate(-2px,-2px); }
+  99% { transform: translate(2px,2px); }
+}
+
+/* BURNING TITLE */
+.burn {
+  font-size: 60px;
+  letter-spacing: 5px;
   text-shadow:
     0 0 10px #ff3c00,
-    0 0 25px #ff0000,
-    0 0 60px #ff6a00;
-  animation: rageFlicker 2.5s infinite;
+    0 0 30px #ff0000,
+    0 0 80px #ff6a00;
+  animation: burnFlicker 2s infinite;
 }
 
-@keyframes rageFlicker {
-  0%,100% { opacity: 1; }
+@keyframes burnFlicker {
+  0% { opacity: 1; }
   45% { opacity: 0.85; }
   50% { opacity: 1; }
   55% { opacity: 0.9; }
@@ -66,11 +106,10 @@ h1 {
 
 /* SLOGAN */
 .slogan {
+  margin: 20px 0 35px;
   font-size: 22px;
-  margin-bottom: 35px;
   color: #ff6a00;
   letter-spacing: 2px;
-  text-shadow: 0 0 15px #ff3c00;
 }
 
 /* MENU */
@@ -84,64 +123,40 @@ h1 {
   justify-content: space-between;
   padding: 18px 22px;
   margin-bottom: 16px;
-  border-radius: 10px;
   font-size: 20px;
-  font-weight: bold;
   text-transform: uppercase;
-  box-shadow:
-    inset 0 0 20px rgba(0,0,0,0.6),
-    0 0 25px rgba(255,60,0,0.8);
-  animation: heatPulse 3s infinite;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(255,60,0,0.9);
 }
 
-@keyframes heatPulse {
-  0%,100% { transform: scale(1); }
-  50% { transform: scale(1.03); }
-}
-
-.green {
-  background: linear-gradient(145deg, #003300, #1b5e20);
-}
-
-.red {
-  background: linear-gradient(145deg, #4a0000, #b71c1c);
-}
-
+.green { background: linear-gradient(#003300, #1b5e20); }
+.red { background: linear-gradient(#4a0000, #b71c1c); }
 .primal {
-  background: linear-gradient(145deg, #ff6a00, #ff9100);
-  color: #000;
-  text-shadow: none;
+  background: linear-gradient(#ff6a00, #ff9100);
+  color: black;
 }
 
-/* WHATSAPP BUTTON */
+/* CTA */
 .whatsapp {
   display: inline-block;
-  background: linear-gradient(180deg, #ff3c00, #7f0000);
-  color: #fff;
+  padding: 20px 50px;
+  font-size: 24px;
+  letter-spacing: 3px;
+  background: linear-gradient(#ff3c00, #7f0000);
+  color: white;
   text-decoration: none;
-  padding: 20px 44px;
-  border-radius: 12px;
-  font-size: 22px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
   box-shadow:
-    0 0 30px #ff3c00,
-    0 0 80px rgba(255,60,0,0.9);
-  animation: buttonThrob 1.8s infinite;
+    0 0 40px #ff3c00,
+    0 0 100px rgba(255,60,0,0.9);
+  animation: pulse 1.5s infinite;
 }
 
-@keyframes buttonThrob {
+@keyframes pulse {
   0%,100% { transform: scale(1); }
-  50% { transform: scale(1.08); }
-}
-
-.whatsapp:hover {
-  filter: brightness(1.2);
+  50% { transform: scale(1.1); }
 }
 
 /* MOBILE */
 @media (max-width: 600px) {
-  h1 { font-size: 42px; }
-  .logo { width: 200px; }
+  .burn { font-size: 42px; }
 }
-
