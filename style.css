@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Metal Mania', cursive;
+  color: #ff3c00;
+  background: black;
+  overflow-x: hidden;
+}
+
+/* Inferno background */
+.inferno {
+  position: fixed;
+  inset: 0;
+  background: url("background.jpg") center / cover no-repeat;
+  filter: contrast(1.4) brightness(0.7) saturate(1.5);
+  z-index: -3;
+}
+
+/* Ember layer */
+.embers {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle, rgba(255,60,0,0.4) 1px, transparent 2px);
+  background-size: 3px 3px;
+  animation: drift 20s linear infinite;
+  opacity: 0.5;
+  z-index: -2;
+}
+
+@keyframes drift {
+  from { background-position: 0 0; }
+  to { background-position: 0 -1000px; }
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: radial-gradient(circle, rgba(0,0,0,0.7), black);
+}
+
+.logo {
+  max-width: 220px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 25px red);
+}
+
+h1 {
+  font-size: clamp(3rem, 7vw, 6rem);
+  text-shadow: 0 0 40px red, 0 0 80px black;
+  animation: flicker 2s infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+
+.slogan {
+  font-size: 1.5rem;
+  margin: 15px 0 30px;
+  color: #ff9500;
+}
+
+/* WhatsApp button */
+.whatsapp {
+  display: inline-block;
+  padding: 18px 40px;
+  font-size: 1.3rem;
+  color: black;
+  background: linear-gradient(90deg, #ff0000, #ff7a00);
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 0 40px red;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.whatsapp:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 80px orange;
+}
+
+/* Sauces */
+.sauces {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 60px 20px;
+}
+
+.sauce {
+  background: rgba(0,0,0,0.8);
+  border: 2px solid #ff3c00;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(255,0,0,0.4);
+}
+
+.sauce h2 {
+  font-size: 2rem;
+}
+
+.sauce span {
+  display: block;
+  margin-top: 15px;
+  font-size: 1.8rem;
+  color: #ff9500;
+}
+
+.inferno-card {
+  border-color: #ff0000;
+  box-shadow: 0 0 80px red;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 30px;
+  background: black;
+  color: #ff9500;
+}
