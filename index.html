@@ -1,234 +1,71 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dirty Monkey Hot Sauce</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Anton&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --fire-red: #c4161c;
-      --ember-orange: #ff6a00;
-      --charcoal: #0e0e0e;
-      --ash: #1a1a1a;
-      --glow: 0 0 25px rgba(255, 106, 0, 0.6);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: radial-gradient(circle at top, #1a0000, #000);
-      color: #fff;
-      font-family: 'Anton', sans-serif;
-      letter-spacing: 1px;
-    }
-
-    header {
-      background: url('banner.jpg') center/cover no-repeat;
-      border-bottom: 3px solid var(--ember-orange);
-    }
-
-    .overlay {
-      background: rgba(0,0,0,0.75);
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-family: 'Metal Mania', cursive;
-      font-size: 4rem;
-      color: var(--ember-orange);
-      text-shadow: var(--glow);
-    }
-
-    header p {
-      margin-top: 15px;
-      font-size: 1.4rem;
-      color: #f5f5f5;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      background: #000;
-      padding: 15px;
-      border-bottom: 2px solid var(--fire-red);
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.1rem;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: var(--ember-orange);
-      text-shadow: var(--glow);
-    }
-
-    section {
-      padding: 80px 20px;
-      background: linear-gradient(180deg, #0a0a0a, #1a0000);
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 40px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .card {
-      background: #0b0b0b;
-      border: 2px solid var(--fire-red);
-      padding: 30px;
-      text-align: center;
-      box-shadow: var(--glow);
-    }
-
-    .card h3 {
-      font-family: 'Metal Mania', cursive;
-      font-size: 2rem;
-      color: var(--ember-orange);
-    }
-
-    .card p {
-      margin: 15px 0;
-      font-size: 1rem;
-      color: #ddd;
-    }
-
-    .price {
-      font-size: 1.4rem;
-      color: #fff;
-      margin-bottom: 20px;
-    }
-
-    button {
-      background: linear-gradient(45deg, var(--fire-red), var(--ember-orange));
-      border: none;
-      padding: 12px 25px;
-      color: #fff;
-      font-size: 1rem;
-      cursor: pointer;
-      box-shadow: var(--glow);
-      transition: transform 0.2s;
-    }
-
-    button:hover {
-      transform: scale(1.05);
-    }
-
-    .contact {
-      text-align: center;
-      background: #000;
-    }
-
-    .contact h2 {
-      font-family: 'Metal Mania', cursive;
-      font-size: 3rem;
-      color: var(--ember-orange);
-    }
-
-    .contact a {
-      display: inline-block;
-      margin-top: 30px;
-      font-size: 1.5rem;
-      color: #fff;
-      text-decoration: none;
-      background: #25D366;
-      padding: 15px 30px;
-      box-shadow: var(--glow);
-    }
-
-    footer {
-      background: #000;
-      padding: 20px;
-      text-align: center;
-      font-size: 0.9rem;
-      border-top: 2px solid var(--fire-red);
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-  <div class="overlay">
-    <h1>Dirty Monkey</h1>
-    <p>Sauce Made to Order · Shipped Fast</p>
-  </div>
+<div class="fire-bg"></div>
+
+<header class="hero">
+  <h1>DIRTY MONKEY<br><span>HOTSAUCE</span></h1>
+  <p class="tagline">GET WILD · GET FIERY · GET DIRTY</p>
+
+  <a href="https://wa.me/27XXXXXXXXX" class="cta">
+    Order on WhatsApp
+  </a>
 </header>
 
-<nav>
-  <a href="#home">Home</a>
-  <a href="#shop">Shop</a>
-  <a href="#contact">Contact</a>
-</nav>
+<section class="sauces">
+  <h2>OUR SAUCES</h2>
 
-<section id="about" style="background: linear-gradient(180deg, #000, #140000); padding: 80px 20px; text-align: center;">
-  <h2 style="font-family: 'Metal Mania', cursive; font-size: 3rem; color: var(--ember-orange); margin-bottom: 20px;">About Dirty Monkey</h2>
-  <p style="max-width: 900px; margin: auto; font-size: 1.2rem; color: #ddd; line-height: 1.7;">
-    Dirty Monkey Hot Sauce is made for heat seekers who want flavour with attitude. 
-    Every bottle is handcrafted in small batches using fresh chillies, bold ingredients, 
-    and zero shortcuts. Our sauces are made to order, packed with fire, and shipped fast — 
-    because weak sauce has no place here.
+  <div class="cards">
+    <div class="card green">
+      <h3>Green Rampage</h3>
+      <p>Fresh jalapeño flavour<br>with a sharp, savage bite.</p>
+      <span class="price">R50 · 125ml</span>
+      <div class="heat">🌶🌶🌶</div>
+    </div>
+
+    <div class="card red">
+      <h3>Red Howler</h3>
+      <p>Bird’s Eye chilli chaos.<br>Fast heat. Loud flavour.</p>
+      <span class="price">R50 · 125ml</span>
+      <div class="heat">🌶🌶🌶🌶</div>
+    </div>
+
+    <div class="card black">
+      <h3>Primal Inferno</h3>
+      <p>Ghost & Reaper chillies<br>brutal, primal burn.</p>
+      <span class="price">R50 · 125ml</span>
+      <div class="heat">🌶🌶🌶🌶🌶</div>
+    </div>
+  </div>
+
+  <p class="bulk">
+    Bulk orders: Prices to be discussed.<br>
+    Contact us directly via WhatsApp.
   </p>
 </section>
 
-<section id="shop">
-  <div class="products">
-
-    <div class="card">
-      <h3>Green Rampage</h3>
-      <p>Jalapeño based · Fresh green fury</p>
-      <div class="price">R50 · 125ml</div>
-      <button onclick="order('Green Rampage')">Order</button>
-    </div>
-
-    <div class="card">
-      <h3>Red Howler</h3>
-      <p>Bird's eye · Sharp savage heat</p>
-      <div class="price">R50 · 125ml</div>
-      <button onclick="order('Red Howler')">Order</button>
-    </div>
-
-    <div class="card">
-      <h3>Primal Inferno</h3>
-      <p>Ghost & Reaper · No mercy</p>
-      <div class="price">R50 · 125ml</div>
-      <button onclick="order('Primal Inferno')">Order</button>
-    </div>
-
-  </div>
-</section>
-
-<section id="contact" class="contact">
-  <h2>Order via WhatsApp</h2>
-  <a href="https://wa.me/27763087143" target="_blank">076 308 7143</a>
-  <p style="margin-top:20px;">Bulk orders welcome — pricing to be discussed</p>
+<section class="about">
+  <h2>ABOUT DIRTY MONKEY</h2>
+  <p>
+    Born from a love of chilli, fire, and extreme flavour.<br>
+    Handcrafted in small batches with zero compromise.<br><br>
+    <strong>This is sauce for those who crave the burn.</strong>
+  </p>
 </section>
 
 <footer>
-  Dirty Monkey Hot Sauce © 2026
+  © Dirty Monkey Hot Sauce · Handmade · Savage Heat
 </footer>
-
-<script>
-  function order(item) {
-    const msg = `Hi, I would like to order ${item} (R50 · 125ml).`;
-    window.open(`https://wa.me/27763087143?text=${encodeURIComponent(msg)}`);
-  }
-</script>
 
 </body>
 </html>
+
+
