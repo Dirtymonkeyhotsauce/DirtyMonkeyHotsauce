@@ -345,3 +345,54 @@ body::after {
     opacity: 0;
   }
 }
+/* 💥 SPARK PARTICLES */
+.spark {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, yellow, red);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: sparkFly 0.8s ease-out forwards;
+  z-index: 999;
+}
+
+@keyframes sparkFly {
+  to {
+    transform: translate(var(--x), var(--y)) scale(0);
+    opacity: 0;
+  }
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,60,0,0.25) 0,
+      transparent 3px,
+      rgba(255,0,0,0.25) 6px
+    );
+  mix-blend-mode: overlay;
+  opacity: 0.25;
+  animation: lavaCrack 10s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes lavaCrack {
+  from { background-position: 0 0; }
+  to { background-position: 600px 0; }
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%),
+    rgba(255,80,0,0.35),
+    transparent 40%
+  );
+  pointer-events: none;
+}
