@@ -279,3 +279,12 @@ body {
   50%  { filter: brightness(1.15) contrast(2.1); }
   100% { filter: brightness(1) contrast(1.6); }
 }
+@keyframes shimmer {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+  100% { transform: translateY(0); }
+}
+
+.hero, .sauces {
+  animation: shimmer 0.8s infinite;
+}
