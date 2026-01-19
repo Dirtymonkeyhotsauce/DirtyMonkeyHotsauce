@@ -396,3 +396,99 @@ body::after {
   );
   pointer-events: none;
 }
+/* 💥 CLICK HIT */
+body.hit {
+  animation: hitFlash 0.12s;
+}
+
+@keyframes hitFlash {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(2.2) contrast(2.4); }
+  100% { filter: brightness(1); }
+}
+
+/* 🔥 SPARK PARTICLES */
+.spark {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, yellow, red, black);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: sparkFly 0.9s ease-out forwards;
+  z-index: 9999;
+}
+
+@keyframes sparkFly {
+  to {
+    transform: translate(var(--x), var(--y)) scale(0);
+    opacity: 0;
+  }
+}
+
+/* 🌋 BODY BEFORE — LAVA VEINS + GLOW */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at bottom, rgba(255,40,0,0.35), transparent 60%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,60,0,0.25) 0,
+      transparent 4px,
+      rgba(255,0,0,0.25) 8px
+    );
+  mix-blend-mode: overlay;
+  animation: lavaMove 8s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes lavaMove {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 600px 0, 0 -400px; }
+}
+
+/* 👁 BODY AFTER — DEMON GAZE + GLITCH */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at var(--x, 50%) var(--y, 50%),
+      rgba(255,80,0,0.45),
+      transparent 40%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.03),
+      rgba(255,255,255,0.03) 1px,
+      transparent 2px,
+      transparent 4px
+    );
+  animation: glitch 6s infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes glitch {
+  0%, 96%, 100% { opacity: 1; }
+  97% { opacity: 0.6; transform: translateX(-2px); }
+  98% { opacity: 0.9; transform: translateX(2px); }
+  99% { opacity: 0.7; transform: translateY(-1px); }
+}
+
+/* 📳 MICRO QUAKES */
+body {
+  animation: quake 0.12s infinite;
+}
+
+@keyframes quake {
+  0% { transform: translate(0); }
+  25% { transform: translate(1px, -1px); }
+  50% { transform: translate(-1px, 1px); }
+  75% { transform: translate(1px, 1px); }
+  100% { transform: translate(0); }
+}
