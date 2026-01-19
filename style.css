@@ -270,3 +270,12 @@ body::before {
   from { background-position: center 150%; }
   to   { background-position: center -150%; }
 }
+body {
+  animation: demonPulse 6s infinite;
+}
+
+@keyframes demonPulse {
+  0%   { filter: brightness(1) contrast(1.6); }
+  50%  { filter: brightness(1.15) contrast(2.1); }
+  100% { filter: brightness(1) contrast(1.6); }
+}
