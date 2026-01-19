@@ -239,3 +239,23 @@ body::before {
   50% { opacity: 0.75; }
   100% { opacity: 0.4; }
 }
+/* 🔥 REAL FLAME OVERLAY (VISIBLE) */
+.fire-overlay {
+  position: fixed;
+  inset: 0;
+  background: url("fire.gif") center bottom / cover no-repeat;
+  opacity: 0.75;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: fireRise 20s linear infinite;
+  z-index: -1;
+}
+
+@keyframes fireRise {
+  from {
+    background-position: center 120%;
+  }
+  to {
+    background-position: center -120%;
+  }
+}
