@@ -259,3 +259,14 @@ body::before {
     background-position: center -120%;
   }
 }
+.fire-overlay.deep {
+  background: url("fire.gif") center bottom / 160% no-repeat;
+  opacity: 0.45;
+  filter: blur(2px) contrast(1.4);
+  animation: fireRiseDeep 35s linear infinite;
+}
+
+@keyframes fireRiseDeep {
+  from { background-position: center 150%; }
+  to   { background-position: center -150%; }
+}
