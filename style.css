@@ -18,7 +18,9 @@ body {
   position: fixed;
   inset: 0;
   background: url("background.jpg") center / cover no-repeat;
-  filter: contrast(1.6) brightness(1.1) saturate(1.8);
+  filter: contrast(1.8) brightness(1.15) saturate(2);
+animation: infernoSlow 30s linear infinite;
+
   z-index: -5;
 }
 
@@ -226,6 +228,10 @@ body::before {
   animation: lavaPulse 4s ease-in-out infinite;
   pointer-events: none;
   z-index: -2;
+}
+@keyframes infernoSlow {
+  from { transform: scale(1) translateY(0); }
+  to { transform: scale(1.05) translateY(-30px); }
 }
 
 @keyframes lavaPulse {
