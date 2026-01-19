@@ -482,8 +482,10 @@ body::after {
 
 /* 📳 MICRO QUAKES */
 body {
-  animation: quake 0.12s infinite;
+  will-change: transform;
+  animation: quake 0.25s steps(2) infinite;
 }
+
 
 @keyframes quake {
   0% { transform: translate(0); }
@@ -491,4 +493,25 @@ body {
   50% { transform: translate(-1px, 1px); }
   75% { transform: translate(1px, 1px); }
   100% { transform: translate(0); }
+}
+@media (max-width: 768px) {
+
+  body::before {
+    animation-duration: 14s;
+    opacity: 0.75;
+  }
+
+  body::after {
+    animation-duration: 10s;
+    opacity: 0.85;
+  }
+
+  .spark {
+    width: 6px;
+    height: 6px;
+  }
+
+}
+* {
+  transform: translateZ(0);
 }
